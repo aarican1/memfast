@@ -18,7 +18,7 @@ class GoogleAdsCubit extends Cubit<GoogleAdsState> {
 
       rewardedAd = null;
       RewardedAd.load(
-          adUnitId: 'ca-app-pub-7594703334228561/2544822530',
+          adUnitId: 'your adUnitID',
           request: const AdRequest(),
           rewardedAdLoadCallback: RewardedAdLoadCallback(
             onAdLoaded: (RewardedAd ad) {
