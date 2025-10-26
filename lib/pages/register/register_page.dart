@@ -29,7 +29,8 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryConstants mediaQCons = MediaQueryConstants(context: context);
+    final MediaQueryConstants mediaQCons =
+        MediaQueryConstants(context: context);
     double width = MediaQuery.of(context).size.width;
     double appBarFontSize = MediaQuery.of(context).size.width * 0.11;
     Color titleAppbarColor = Colors.white;
@@ -63,7 +64,7 @@ class RegisterPage extends StatelessWidget {
                       context: context,
                       builder: (context) => SomethingWentWrongDialog(
                           errorMessage: state.errorMessage ?? ''));
-                            context.read<RegisterCubit>().errorMakeNull();
+                  context.read<RegisterCubit>().errorMakeNull();
                 }
                 if (state.isCreateUsername && state.isAgreementAccept) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -118,7 +119,7 @@ class RegisterPage extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 38),
                         child: TextButton(
                             style: ButtonStyle(
-                              shape: MaterialStateProperty.all<
+                              shape: WidgetStateProperty.all<
                                   RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(
@@ -127,7 +128,7 @@ class RegisterPage extends StatelessWidget {
                                             0.064 *
                                             0.366)),
                               ),
-                              side: MaterialStateProperty.all<BorderSide>(
+                              side: WidgetStateProperty.all<BorderSide>(
                                 const BorderSide(
                                   color: Colors.white,
                                   width: 1.0,
@@ -135,7 +136,8 @@ class RegisterPage extends StatelessWidget {
                               ),
                             ),
                             onPressed: () async {
-                              String usernameValue = registerFormController.text;
+                              String usernameValue =
+                                  registerFormController.text;
                               if (usernameValue.isEmpty) {
                                 await context
                                     .read<RegisterCubit>()

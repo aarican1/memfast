@@ -3,7 +3,7 @@ import 'package:memfast/local_database/secure_storage.dart';
 
 import 'package:memfast/models/user_model.dart';
 import 'package:memfast/pages/select_level/state/select_level_state.dart';
-import 'package:memfast/utility/exceptions/enums/firebase_enums.dart';
+import 'package:memfast/utility/enums/firebase_enums.dart';
 
 class SelectLevelCubit extends Cubit<SelectLevelState> {
   SelectLevelCubit()

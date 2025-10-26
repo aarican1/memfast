@@ -8,7 +8,7 @@ import 'package:memfast/models/user_model.dart';
 
 import 'package:memfast/pages/game/game_state.dart';
 
-import 'package:memfast/utility/exceptions/enums/firebase_enums.dart';
+import 'package:memfast/utility/enums/firebase_enums.dart';
 
 class GameCubit extends Cubit<GameState> {
   GameCubit()

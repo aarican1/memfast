@@ -17,7 +17,6 @@ extension NetworkChangeResultsExtension on NetworkChangeResults {
         return NetworkChangeResults.on;
 
       case ConnectivityResult.none:
-      default:
         return NetworkChangeResults.off;
     }
   }

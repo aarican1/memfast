@@ -23,7 +23,7 @@ class SelectLevelPage extends StatelessWidget {
     return BaseContainer(
         child: PopScope(
       canPop: false,
-      onPopInvoked: (didPop) {
+      onPopInvokedWithResult: (didPop, result) {
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
@@ -68,7 +68,7 @@ class SelectLevelPage extends StatelessWidget {
                   builder: (context) => SomethingWentWrongDialog(
                       errorMessage: state.errorMessage ?? ''),
                 );
-                  context.read<SelectLevelCubit>().errorMakeNull();
+                context.read<SelectLevelCubit>().errorMakeNull();
               }
             },
             builder: (context, state) {
@@ -83,7 +83,7 @@ class SelectLevelPage extends StatelessWidget {
                           ? Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>const GamePage(
+                                  builder: (context) => const GamePage(
                                         buttonCount: 5,
                                       )))
                           : null;
@@ -99,7 +99,7 @@ class SelectLevelPage extends StatelessWidget {
                           ? Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>const GamePage(
+                                  builder: (context) => const GamePage(
                                         buttonCount: 10,
                                       )))
                           : null;
@@ -115,7 +115,7 @@ class SelectLevelPage extends StatelessWidget {
                           ? Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>const GamePage(
+                                  builder: (context) => const GamePage(
                                         buttonCount: 12,
                                       )))
                           : null;
@@ -131,7 +131,7 @@ class SelectLevelPage extends StatelessWidget {
                           ? Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>const GamePage(
+                                  builder: (context) => const GamePage(
                                         buttonCount: 15,
                                       )))
                           : null;
@@ -170,6 +170,7 @@ class LevelTextButton extends StatelessWidget {
             fontSize: mediaQCons.getContantsMediaQueryData(
                 MediaQueryContantsEnum.usernameFontSize),
             textColor:
+                // ignore: deprecated_member_use
                 ColorConstants.textColor.withOpacity(colorSetter ? 1 : 0.5),
             text: 'Level $levelNumber'));
   }

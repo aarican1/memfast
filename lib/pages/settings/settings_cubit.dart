@@ -26,7 +26,7 @@ class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
   Future<void> fetchAllows() async {
     bool? aMusic = await BoolSharedPreferences.readBool('allowMusicPlay');
     bool? aSound = await BoolSharedPreferences.readBool('allowSoundPlay');
-   
+
     await musicPlayer.setAsset('lib/assets/musics/music.mp3');
     if (aMusic != null) {
       emit(state.copyWith(allowMusicPlay: aMusic));
@@ -47,6 +47,7 @@ class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
   }
 
   @override
+  // ignore: avoid_renaming_method_parameters
   void didChangeAppLifecycleState(AppLifecycleState lifecycleState) {
     if (state.allowMusicPlay!) {
       if (lifecycleState == AppLifecycleState.paused) {
@@ -60,8 +61,6 @@ class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
   }
 
   void manageMusic() async {
-   
-
     if (state.allowMusicPlay!) {
       playMusic();
       emit(state.copyWith(isMusicPlaying: true));
@@ -89,8 +88,6 @@ class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
     emit(state.copyWith(allowSoundPlay: !(state.allowSoundPlay!)));
     await BoolSharedPreferences.writeBool(
         'allowSoundPlay', (state.allowSoundPlay!));
-   
-  
   }
 
   void playMusic() async {

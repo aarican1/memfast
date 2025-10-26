@@ -12,7 +12,7 @@ import 'package:memfast/pages/splash/bloc/state/splash_state.dart';
 import 'package:memfast/product/constants/color_contants.dart';
 import 'package:memfast/product/constants/string_constants.dart';
 
-import 'package:memfast/utility/exceptions/enums/firebase_enums.dart';
+import 'package:memfast/utility/enums/firebase_enums.dart';
 
 
 class SplashPage extends StatefulWidget {

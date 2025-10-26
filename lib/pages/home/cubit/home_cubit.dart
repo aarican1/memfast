@@ -3,7 +3,7 @@ import 'package:memfast/local_database/secure_storage.dart';
 import 'package:memfast/models/user_model.dart';
 import 'package:memfast/pages/best_scores/best_scores_state.dart';
 
-import 'package:memfast/utility/exceptions/enums/firebase_enums.dart';
+import 'package:memfast/utility/enums/firebase_enums.dart';
 
 class HomeCubit extends Cubit<BestScoresState> {
   HomeCubit()

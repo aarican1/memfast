@@ -27,7 +27,7 @@ class LevelComplete extends StatelessWidget {
     return BaseContainer(
       child: PopScope(
           canPop: false,
-          onPopInvoked: (didPop) {
+          onPopInvokedWithResult: (didPop, result) {
             context.read<GameCubit>().reset();
             Navigator.pushReplacement(
                 context,
@@ -41,7 +41,6 @@ class LevelComplete extends StatelessWidget {
                 appBar: AppBar(
                   leading: IconButton(
                       onPressed: () {
-                       
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -90,15 +89,12 @@ class LevelComplete extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {
-                          
-                          
-
                             int buttonCount = state.whichLevelButton;
                             switch (buttonCount) {
                               case 5:
                                 buttonCount = 10;
                                 context.read<GameCubit>().reset();
-                                   
+
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
@@ -109,7 +105,7 @@ class LevelComplete extends StatelessWidget {
                               case 10:
                                 buttonCount = 12;
                                 context.read<GameCubit>().reset();
-                                 
+
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
@@ -120,7 +116,7 @@ class LevelComplete extends StatelessWidget {
                               case 12:
                                 buttonCount = 15;
                                 context.read<GameCubit>().reset();
-                                  
+
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(

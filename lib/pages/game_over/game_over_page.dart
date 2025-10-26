@@ -31,11 +31,11 @@ class GameOverPage extends StatelessWidget {
     return BaseContainer(
       child: PopScope(
         canPop: false,
-        onPopInvoked: (didPop) {
+        onPopInvokedWithResult: (didPop, result) {
           context.read<GameCubit>().reset();
           context.read<GameCubit>().dispose();
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => const HomePage()));
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const HomePage()));
         },
         child: Scaffold(
           appBar: AppBar(
@@ -132,7 +132,9 @@ class GameOverPage extends StatelessWidget {
                             onTap: isOneGameOneAd
                                 ? null
                                 : () {
-                                    context.read<GoogleAdsCubit>().getLoadedInfo()
+                                    context
+                                            .read<GoogleAdsCubit>()
+                                            .getLoadedInfo()
                                         ? context
                                             .read<SettingsCubit>()
                                             .stopMusic()
@@ -144,7 +146,8 @@ class GameOverPage extends StatelessWidget {
                                           .getReward();
 
                                       if (rewareded) {
-                                        int buttonCount = state.whichLevelButton;
+                                        int buttonCount =
+                                            state.whichLevelButton;
                                         context.read<GameCubit>().resume(
                                             buttonCount,
                                             state.score,
@@ -159,7 +162,9 @@ class GameOverPage extends StatelessWidget {
                                         context.read<GoogleAdsCubit>().loadAd();
                                       } else {}
                                     }, onUserEarnedReward: (p0, p1) {
-                                      context.read<GoogleAdsCubit>().winReward();
+                                      context
+                                          .read<GoogleAdsCubit>()
+                                          .winReward();
                                     });
                                   },
                             child: Container(
@@ -177,8 +182,8 @@ class GameOverPage extends StatelessWidget {
                                         0.064 *
                                         0.366),
                               ),
-                              child: BlocSelector<GoogleAdsCubit, GoogleAdsState,
-                                  bool>(
+                              child: BlocSelector<GoogleAdsCubit,
+                                  GoogleAdsState, bool>(
                                 selector: (state) {
                                   return state.adLoading ?? false;
                                 },
@@ -217,8 +222,8 @@ class GameOverPage extends StatelessWidget {
                                                       0.017,
                                                   textColor:
                                                       ColorConstants.textColor,
-                                                  text:
-                                                      StringConstants.rewardLimit)
+                                                  text: StringConstants
+                                                      .rewardLimit)
                                               : Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
@@ -237,8 +242,9 @@ class GameOverPage extends StatelessWidget {
                                                                     MediaQueryContantsEnum
                                                                         .height) *
                                                             0.023,
-                                                        textColor: ColorConstants
-                                                            .textColor,
+                                                        textColor:
+                                                            ColorConstants
+                                                                .textColor,
                                                         text: StringConstants
                                                             .resume),
                                                   ],
@@ -282,9 +288,10 @@ class GameOverPage extends StatelessWidget {
                             ),
                             child: Center(
                               child: BaseTextWidget(
-                                  fontSize: mediaQCons.getContantsMediaQueryData(
-                                          MediaQueryContantsEnum.height) *
-                                      0.023,
+                                  fontSize:
+                                      mediaQCons.getContantsMediaQueryData(
+                                              MediaQueryContantsEnum.height) *
+                                          0.023,
                                   textColor: ColorConstants.textColor,
                                   text: StringConstants.retry),
                             ),

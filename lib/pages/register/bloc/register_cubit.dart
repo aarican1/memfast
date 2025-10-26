@@ -5,7 +5,7 @@ import 'package:memfast/local_database/secure_storage.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:memfast/pages/register/bloc/register_state.dart';
 
-import 'package:memfast/utility/exceptions/enums/firebase_enums.dart';
+import 'package:memfast/utility/enums/firebase_enums.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit()

@@ -89,7 +89,7 @@ class GamePage extends StatelessWidget {
           ),
         ),
         body: PopScope(
-          onPopInvoked: (didPop) {
+          onPopInvokedWithResult: (didPop, result) {
             context.read<SelectLevelCubit>().choiceButtonColor();
             context.read<GameCubit>().reset();
           },
@@ -207,15 +207,16 @@ List<Widget> buildButtonWidget(
                   ),
                   firstChild: Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(buttonSize * 0.24),
+                          borderRadius:
+                              BorderRadius.circular(buttonSize * 0.24),
                           border: Border.all(width: 1, color: Colors.white)),
                       height: buttonSize,
                       width: buttonSize,
                       child: Center(
                         child: Text(
                           '${i + 1}',
-                          style:
-                              const TextStyle(fontSize: 20, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 20, color: Colors.white),
                         ),
                       )),
                 ),
