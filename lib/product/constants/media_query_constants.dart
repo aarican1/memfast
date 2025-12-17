@@ -5,7 +5,8 @@ class MediaQueryConstants {
   BuildContext context;
 
   dynamic getContantsMediaQueryData(
-      MediaQueryContantsEnum mediaQueryContantsEnum) {
+    MediaQueryContantsEnum mediaQueryContantsEnum,
+  ) {
     switch (mediaQueryContantsEnum) {
       case MediaQueryContantsEnum.width:
         return MediaQuery.of(context).size.width;
@@ -18,15 +19,13 @@ class MediaQueryConstants {
       case MediaQueryContantsEnum.bodyPadding:
         return MediaQuery.of(context).size.height * 0.13;
       case MediaQueryContantsEnum.nameFontSize:
-        return MediaQuery.of(context).size.width * 0.06;
+        return MediaQuery.of(context).size.width * 0.05;
       case MediaQueryContantsEnum.usernameFontSize:
-        return MediaQuery.of(context).size.width * 0.09;
+        return MediaQuery.of(context).size.width * 0.07;
     }
   }
 
-  MediaQueryConstants({
-    required this.context,
-  });
+  MediaQueryConstants({required this.context});
 }
 
 enum MediaQueryContantsEnum {

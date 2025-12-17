@@ -21,136 +21,168 @@ class BestScoresPage extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryConstants mediaQCons = MediaQueryConstants(context: context);
     return BaseContainer(
-        child: Scaffold(
-            appBar: AppBar(
-              leading: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios_new_sharp,
-                    color: ColorConstants.textColor,
-                  )),
-              toolbarHeight: mediaQCons.getContantsMediaQueryData(
-                      MediaQueryContantsEnum.appbarPadding) *
-                  2,
-              centerTitle: true,
-              title: Padding(
-                  padding: EdgeInsets.only(
-                      top: mediaQCons.getContantsMediaQueryData(
-                          MediaQueryContantsEnum.appbarPadding)),
-                  child: BaseTextWidget(
-                      fontSize: mediaQCons.getContantsMediaQueryData(
-                          MediaQueryContantsEnum.appBarFontSize),
-                      textColor: ColorConstants.textColor,
-                      text: StringConstants.appName)),
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios_new_sharp,
+              color: ColorConstants.textColor,
             ),
-            body: BlocListener<HomeCubit, BestScoresState>(
-                listener: (context, state) {
-                  if (state.errorMessage != null) {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return SomethingWentWrongDialog(
-                              errorMessage: state.errorMessage ?? '');
-                        });
-                    context.read<HomeCubit>().errorMakeNull();
-                  }
+          ),
+          toolbarHeight:
+              mediaQCons.getContantsMediaQueryData(
+                MediaQueryContantsEnum.appbarPadding,
+              ) *
+              2,
+          centerTitle: true,
+          title: Padding(
+            padding: EdgeInsets.only(
+              top: mediaQCons.getContantsMediaQueryData(
+                MediaQueryContantsEnum.appbarPadding,
+              ),
+            ),
+            child: BaseTextWidget(
+              fontSize: mediaQCons.getContantsMediaQueryData(
+                MediaQueryContantsEnum.usernameFontSize,
+              ),
+              textColor: ColorConstants.textColor,
+              text: StringConstants.appName,
+            ),
+          ),
+        ),
+        body: BlocListener<HomeCubit, BestScoresState>(
+          listener: (context, state) {
+            if (state.errorMessage != null) {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return SomethingWentWrongDialog(
+                    errorMessage: state.errorMessage ?? '',
+                  );
                 },
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.height) *
-                              0.064),
-                      child: Center(
-                          child: BaseTextWidget(
-                              fontSize: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.usernameFontSize),
-                              textColor: ColorConstants.textColor,
-                              text: StringConstants.bestPlayers)),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.height) *
-                              0.024,
-                          bottom: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.height) *
-                              0.064),
-                      child: SizedBox(
-                        width: mediaQCons.getContantsMediaQueryData(
-                                MediaQueryContantsEnum.width) *
-                            0.907,
-                        height: 10,
-                        child: CustomPaint(
-                          painter: MyLinePainter(),
-                        ),
-                      ),
-                    ),
-                    BlocSelector<HomeCubit, BestScoresState, bool>(
-                      selector: (state) {
-                        return state.isloading ?? false;
-                      },
-                      builder: (context, state) {
-                        return AnimatedCrossFade(
-                            duration: DurationConstants.duration,
-                            crossFadeState: state
-                                ? CrossFadeState.showSecond
-                                : CrossFadeState.showFirst,
-                            secondChild: const CenterCircularIndicator(),
-                            firstChild: BestScoreLWB(mediaQCons: mediaQCons));
-                      },
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.height) *
-                              0.064),
-                      child: Center(
-                          child: BaseTextWidget(
-                              fontSize: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.usernameFontSize),
-                              textColor: ColorConstants.textColor,
-                              text: StringConstants.yourScore)),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.height) *
-                              0.024,
-                          bottom: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.height) *
-                              0.064),
-                      child: SizedBox(
-                        width: mediaQCons.getContantsMediaQueryData(
-                                MediaQueryContantsEnum.width) *
-                            0.907,
-                        height: 10,
-                        child: CustomPaint(
-                          painter: MyLinePainter(),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: mediaQCons.getContantsMediaQueryData(
-                                MediaQueryContantsEnum.width) *
-                            0.203,
-                      ),
-                      child: PersonalRank(mediaQCons: mediaQCons),
-                    )
-                  ],
-                ))));
+              );
+              context.read<HomeCubit>().errorMakeNull();
+            }
+          },
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                  top:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.height,
+                      ) *
+                      0.064,
+                ),
+                child: const Center(
+                  child: BaseTextWidget(
+                    fontSize: 24,
+                    textColor: ColorConstants.textColor,
+                    text: StringConstants.bestPlayers,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.height,
+                      ) *
+                      0.024,
+                  bottom:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.height,
+                      ) *
+                      0.064,
+                ),
+                child: SizedBox(
+                  width:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.width,
+                      ) *
+                      0.907,
+                  height: 10,
+                  child: CustomPaint(painter: MyLinePainter()),
+                ),
+              ),
+              BlocSelector<HomeCubit, BestScoresState, bool>(
+                selector: (state) {
+                  return state.isloading ?? false;
+                },
+                builder: (context, state) {
+                  return AnimatedCrossFade(
+                    duration: DurationConstants.duration,
+                    crossFadeState:
+                        state
+                            ? CrossFadeState.showSecond
+                            : CrossFadeState.showFirst,
+                    secondChild: const CenterCircularIndicator(),
+                    firstChild: BestScoreLWB(mediaQCons: mediaQCons),
+                  );
+                },
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.height,
+                      ) *
+                      0.064,
+                ),
+                child: const Center(
+                  child: BaseTextWidget(
+                    fontSize: 24,
+                    textColor: ColorConstants.textColor,
+                    text: StringConstants.yourScore,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.height,
+                      ) *
+                      0.024,
+                  bottom:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.height,
+                      ) *
+                      0.064,
+                ),
+                child: SizedBox(
+                  width:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.width,
+                      ) *
+                      0.907,
+                  height: 10,
+                  child: CustomPaint(painter: MyLinePainter()),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.width,
+                      ) *
+                      0.203,
+                ),
+                child: PersonalRank(mediaQCons: mediaQCons),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
 class PersonalRank extends StatelessWidget {
-  const PersonalRank({
-    super.key,
-    required this.mediaQCons,
-  });
+  const PersonalRank({super.key, required this.mediaQCons});
 
   final MediaQueryConstants mediaQCons;
 
@@ -180,33 +212,30 @@ class PersonalRank extends StatelessWidget {
                 children: [
                   Column(
                     children: [
+                      const BaseTextWidget(
+                        fontSize: 20,
+                        textColor: ColorConstants.textColor,
+                        text: StringConstants.rank,
+                      ),
                       BaseTextWidget(
-                          fontSize: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.nameFontSize) *
-                              0.7,
-                          textColor: ColorConstants.textColor,
-                          text: StringConstants.rank),
-                      BaseTextWidget(
-                          fontSize: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.nameFontSize),
-                          textColor: ColorConstants.textColor,
-                          text: '${personalIndex + 1}'),
+                        fontSize: 20,
+                        textColor: ColorConstants.textColor,
+                        text: '${personalIndex + 1}',
+                      ),
                     ],
                   ),
                   Column(
                     children: [
+                      const BaseTextWidget(
+                        fontSize: 20,
+                        textColor: ColorConstants.textColor,
+                        text: StringConstants.score,
+                      ),
                       BaseTextWidget(
-                          fontSize: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.nameFontSize) *
-                              0.7,
-                          textColor: ColorConstants.textColor,
-                          text: StringConstants.score),
-                      BaseTextWidget(
-                          fontSize: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.nameFontSize),
-                          textColor: ColorConstants.textColor,
-                          text:
-                              '${personalRank?.score ?? StringConstants.score}'),
+                        fontSize: 20,
+                        textColor: ColorConstants.textColor,
+                        text: '${personalRank?.score ?? StringConstants.score}',
+                      ),
                     ],
                   ),
                 ],
@@ -220,10 +249,7 @@ class PersonalRank extends StatelessWidget {
 }
 
 class BestScoreLWB extends StatelessWidget {
-  const BestScoreLWB({
-    super.key,
-    required this.mediaQCons,
-  });
+  const BestScoreLWB({super.key, required this.mediaQCons});
 
   final MediaQueryConstants mediaQCons;
 
@@ -232,60 +258,72 @@ class BestScoreLWB extends StatelessWidget {
     return BlocBuilder<HomeCubit, BestScoresState>(
       builder: (context, state) {
         return ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: state.bestScore?.length ?? 3,
-            itemBuilder: (context, index) {
-              late final bestscorer = state.bestScore?[index];
-              return SizedBox(
-                width: mediaQCons
-                        .getContantsMediaQueryData(MediaQueryContantsEnum.width) *
-                    0.934,
-                height: mediaQCons.getContantsMediaQueryData(
-                        MediaQueryContantsEnum.height) *
-                    0.0450 *
-                    2,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      bottom: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.height) *
-                          0.016),
-                  child: ListTile(
-                    leading: Padding(
-                      padding: EdgeInsets.only(
-                          left: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.nameFontSize)),
-                      child: BaseTextWidget(
-                          fontSize: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.nameFontSize),
-                          textColor: ColorConstants.textColor,
-                          text: '${index + 1}.'),
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: state.bestScore?.length ?? 3,
+          itemBuilder: (context, index) {
+            late final bestscorer = state.bestScore?[index];
+            return SizedBox(
+              width:
+                  mediaQCons.getContantsMediaQueryData(
+                    MediaQueryContantsEnum.width,
+                  ) *
+                  0.934,
+              height:
+                  mediaQCons.getContantsMediaQueryData(
+                    MediaQueryContantsEnum.height,
+                  ) *
+                  0.0450 *
+                  2,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  bottom:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.height,
+                      ) *
+                      0.016,
+                ),
+                child: ListTile(
+                  leading: Padding(
+                    padding: EdgeInsets.only(
+                      left: mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.nameFontSize,
+                      ),
                     ),
-                    title: Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: mediaQCons.getContantsMediaQueryData(
-                                MediaQueryContantsEnum.nameFontSize),
-                          ),
-                          child: BaseTextWidget(
-                              fontSize: mediaQCons.getContantsMediaQueryData(
-                                  MediaQueryContantsEnum.nameFontSize),
-                              textColor: ColorConstants.textColor,
-                              text: bestscorer?.username ??
-                                  StringConstants.playerName),
-                        ),
-                        BaseTextWidget(
-                            fontSize: mediaQCons.getContantsMediaQueryData(
-                                MediaQueryContantsEnum.nameFontSize),
-                            textColor: ColorConstants.textColor,
-                            text: '${bestscorer?.score}'),
-                      ],
+                    child: BaseTextWidget(
+                      fontSize: 18,
+                      textColor: ColorConstants.textColor,
+                      text: '${index + 1}.',
                     ),
                   ),
+                  title: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: mediaQCons.getContantsMediaQueryData(
+                            MediaQueryContantsEnum.nameFontSize,
+                          ),
+                        ),
+                        child: BaseTextWidget(
+                          fontSize: 18,
+                          textColor: ColorConstants.textColor,
+                          text:
+                              bestscorer?.username ??
+                              StringConstants.playerName,
+                        ),
+                      ),
+                      BaseTextWidget(
+                        fontSize: 20,
+                        textColor: ColorConstants.textColor,
+                        text: '${bestscorer?.score}',
+                      ),
+                    ],
+                  ),
                 ),
-              );
-            });
+              ),
+            );
+          },
+        );
       },
     );
   }
@@ -294,10 +332,11 @@ class BestScoreLWB extends StatelessWidget {
 class MyLinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
-      ..color = ColorConstants.textColor
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = 1.0;
+    final Paint paint =
+        Paint()
+          ..color = ColorConstants.textColor
+          ..strokeCap = StrokeCap.round
+          ..strokeWidth = 1.0;
 
     final double centerY = size.height / 2;
     final Offset startPoint = Offset(0, centerY);

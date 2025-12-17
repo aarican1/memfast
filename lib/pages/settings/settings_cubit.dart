@@ -9,7 +9,7 @@ class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
   final AudioPlayer buttonPlayer = AudioPlayer();
 
   SettingsCubit()
-      : super(SettingsState(isMusicPlaying: false, isSoundPlaying: false)) {
+    : super(SettingsState(isMusicPlaying: false, isSoundPlaying: false)) {
     WidgetsBinding.instance.addObserver(this);
 
     initAsset();
@@ -80,14 +80,18 @@ class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
   Future<void> setAllowMusic() async {
     emit(state.copyWith(allowMusicPlay: !(state.allowMusicPlay!)));
     await BoolSharedPreferences.writeBool(
-        'allowMusicPlay', (state.allowMusicPlay!));
+      'allowMusicPlay',
+      (state.allowMusicPlay!),
+    );
     manageMusic();
   }
 
   Future<void> setAllowSound() async {
     emit(state.copyWith(allowSoundPlay: !(state.allowSoundPlay!)));
     await BoolSharedPreferences.writeBool(
-        'allowSoundPlay', (state.allowSoundPlay!));
+      'allowSoundPlay',
+      (state.allowSoundPlay!),
+    );
   }
 
   void playMusic() async {

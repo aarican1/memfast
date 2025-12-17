@@ -11,8 +11,13 @@ import 'package:url_launcher/url_launcher.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit()
-      : super(const SplashState(
-            isVersionOk: false, isLogIn: false, isFirabaseOk: false)) {
+    : super(
+        const SplashState(
+          isVersionOk: false,
+          isLogIn: false,
+          isFirabaseOk: false,
+        ),
+      ) {
     _initialize();
   }
 
@@ -21,14 +26,16 @@ class SplashCubit extends Cubit<SplashState> {
     await fetchUpdateUrl();
     await getVersionDatabase();
   }
- void errorMakeNull() {
+
+  void errorMakeNull() {
     emit(state.copyWith(errorMessage: null));
   }
+
   Future<void> getSecureStorage() async {
     String key = 'username';
 
     String? result = await SecureStorage.readData(key);
-   
+
     if (result == null || result.isEmpty) {
       emit(state.copyWith(isLogIn: false));
     } else {
@@ -44,13 +51,9 @@ class SplashCubit extends Cubit<SplashState> {
       emit(state.copyWith(errorMessage: 'Client version is null'));
     } else {
       emit(state.copyWith(clientVersion: clientVersion));
-    
     }
 
-   
-    if (kIsWeb) {
-     
-    }
+    if (kIsWeb) {}
 
     final firestore = FirebaseFirestore.instance;
     final verRef = firestore.collection('version');
@@ -58,13 +61,16 @@ class SplashCubit extends Cubit<SplashState> {
         await verRef.doc('android').get();
 
     if (!response.exists) {
-       emit(state.copyWith(errorMessage: 'This document is not find'));
+      emit(state.copyWith(errorMessage: 'This document is not find'));
       //throw Exception('*********Belge bulunamadı***********');
     }
-    if (response.data()?['number'] == null || response.data()?['number'] == '') {
-      emit(state.copyWith(errorMessage: '${response.data()?['number']} is null'));
-     // throw CustomFirebaseException(
-       //   description: '${response.data()?['number']} is null');
+    if (response.data()?['number'] == null ||
+        response.data()?['number'] == '') {
+      emit(
+        state.copyWith(errorMessage: '${response.data()?['number']} is null'),
+      );
+      // throw CustomFirebaseException(
+      //   description: '${response.data()?['number']} is null');
     } else {
       emit(state.copyWith(databaseVersion: response.data()!['number']));
       versionParse(state.clientVersion!, state.databaseVersion!);
@@ -73,8 +79,13 @@ class SplashCubit extends Cubit<SplashState> {
 
   Future<void> versionParse(String appVersion, String databaseVersion) async {
     if (databaseVersion.isEmpty && appVersion.isEmpty) {
-      emit(state.copyWith(errorMessage: 'version get error:$appVersion or $databaseVersion is null'));
-     /* throw CustomFirebaseException(
+      emit(
+        state.copyWith(
+          errorMessage:
+              'version get error:$appVersion or $databaseVersion is null',
+        ),
+      );
+      /* throw CustomFirebaseException(
           description:
               'version get error:$appVersion or $databaseVersion is null');*/
     }
@@ -85,7 +96,12 @@ class SplashCubit extends Cubit<SplashState> {
     final int? databaseNumber = int.tryParse(databaseNumberConverted);
 
     if (deviceNumber == null && databaseNumber == null) {
-       emit(state.copyWith(errorMessage: 'version get error:$appVersion or $databaseVersion is not vaild parse'));
+      emit(
+        state.copyWith(
+          errorMessage:
+              'version get error:$appVersion or $databaseVersion is not vaild parse',
+        ),
+      );
       /*throw CustomFirebaseException(
           description:
               'version get error:$appVersion or $databaseVersion is not vaild parse');*/
@@ -106,7 +122,6 @@ class SplashCubit extends Cubit<SplashState> {
         final urlData = urlSnapshot['url'];
         final url = urlData.toString();
 
-     
         if (url.isEmpty) {
           throw 'url is null';
         }
@@ -116,22 +131,22 @@ class SplashCubit extends Cubit<SplashState> {
         }
       }
     } catch (e) {
-       emit(state.copyWith(errorMessage: '$e'));
-     // throw Exception('$e');
+      emit(state.copyWith(errorMessage: '$e'));
+      // throw Exception('$e');
     }
   }
 
   Future<void> launchUpdateUrl() async {
     final uriParse = state.updateUri;
     if (uriParse == null) {
-       emit(state.copyWith(errorMessage: '$uriParse is null'));
+      emit(state.copyWith(errorMessage: '$uriParse is null'));
       //throw CustomFirebaseException(description: '$uriParse is null');
     }
 
     if (await canLaunchUrl(uriParse!)) {
       await launchUrl(uriParse, mode: LaunchMode.externalNonBrowserApplication);
     } else {
-       emit(state.copyWith(errorMessage: 'Could not launch $uriParse'));
+      emit(state.copyWith(errorMessage: 'Could not launch $uriParse'));
       //throw 'Could not launch $uriParse';
     }
   }

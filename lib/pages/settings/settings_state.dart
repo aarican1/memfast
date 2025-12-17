@@ -6,10 +6,10 @@ class SettingsState {
   final bool? allowSoundPlay;
 
   SettingsState({
- required  this.isMusicPlaying,
-  required   this.isSoundPlaying,
-this.allowMusicPlay,
-   this.allowSoundPlay,
+    required this.isMusicPlaying,
+    required this.isSoundPlaying,
+    this.allowMusicPlay = false,
+    this.allowSoundPlay = false,
   });
 
   SettingsState copyWith({

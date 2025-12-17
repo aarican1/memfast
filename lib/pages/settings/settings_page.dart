@@ -19,13 +19,14 @@ class SettingsPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new_sharp,
-                color: ColorConstants.textColor,
-              )),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios_new_sharp,
+              color: ColorConstants.textColor,
+            ),
+          ),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,41 +40,46 @@ class SettingsPage extends StatelessWidget {
                   },
                   builder: (context, state) {
                     return Container(
-                      height: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.width) *
+                      height:
+                          mediaQCons.getContantsMediaQueryData(
+                            MediaQueryContantsEnum.width,
+                          ) *
                           0.15,
-                      width: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.width) *
+                      width:
+                          mediaQCons.getContantsMediaQueryData(
+                            MediaQueryContantsEnum.width,
+                          ) *
                           0.15,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
-                        color: state
-                            ? ColorConstants.colorList[1]
-                            : ColorConstants.colorList[0],
+                        color:
+                            state
+                                ? ColorConstants.colorList[1]
+                                : ColorConstants.grey,
                         borderRadius: BorderRadius.circular(
-                            mediaQCons.getContantsMediaQueryData(
-                                    MediaQueryContantsEnum.width) *
-                                0.064 *
-                                0.366),
+                          mediaQCons.getContantsMediaQueryData(
+                                MediaQueryContantsEnum.width,
+                              ) *
+                              0.064 *
+                              0.366,
+                        ),
                       ),
                       child: IconButton(
                         onPressed: () async {
-                         
-
                           context.read<SettingsCubit>().setAllowMusic();
-
-                          
-
-                         
                         },
                         icon: Center(
                           child: Image.asset(
                             'lib/assets/icons/music.png',
-                            width: mediaQCons.getContantsMediaQueryData(
-                                    MediaQueryContantsEnum.width) *
+                            width:
+                                mediaQCons.getContantsMediaQueryData(
+                                  MediaQueryContantsEnum.width,
+                                ) *
                                 0.1,
-                            height: mediaQCons.getContantsMediaQueryData(
-                                    MediaQueryContantsEnum.width) *
+                            height:
+                                mediaQCons.getContantsMediaQueryData(
+                                  MediaQueryContantsEnum.width,
+                                ) *
                                 0.1,
                           ),
                         ),
@@ -87,22 +93,29 @@ class SettingsPage extends StatelessWidget {
                   },
                   builder: (context, state) {
                     return Container(
-                      height: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.width) *
+                      height:
+                          mediaQCons.getContantsMediaQueryData(
+                            MediaQueryContantsEnum.width,
+                          ) *
                           0.15,
-                      width: mediaQCons.getContantsMediaQueryData(
-                              MediaQueryContantsEnum.width) *
+                      width:
+                          mediaQCons.getContantsMediaQueryData(
+                            MediaQueryContantsEnum.width,
+                          ) *
                           0.15,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
-                        color: state
-                            ? ColorConstants.colorList[1]
-                            : ColorConstants.colorList[0],
+                        color:
+                            state
+                                ? ColorConstants.colorList[1]
+                                : ColorConstants.grey,
                         borderRadius: BorderRadius.circular(
-                            mediaQCons.getContantsMediaQueryData(
-                                    MediaQueryContantsEnum.width) *
-                                0.064 *
-                                0.366),
+                          mediaQCons.getContantsMediaQueryData(
+                                MediaQueryContantsEnum.width,
+                              ) *
+                              0.064 *
+                              0.366,
+                        ),
                       ),
                       child: IconButton(
                         onPressed: () {
@@ -111,11 +124,15 @@ class SettingsPage extends StatelessWidget {
                         icon: Center(
                           child: Image.asset(
                             'lib/assets/icons/volume.png',
-                            width: mediaQCons.getContantsMediaQueryData(
-                                    MediaQueryContantsEnum.width) *
+                            width:
+                                mediaQCons.getContantsMediaQueryData(
+                                  MediaQueryContantsEnum.width,
+                                ) *
                                 0.09,
-                            height: mediaQCons.getContantsMediaQueryData(
-                                    MediaQueryContantsEnum.width) *
+                            height:
+                                mediaQCons.getContantsMediaQueryData(
+                                  MediaQueryContantsEnum.width,
+                                ) *
                                 0.09,
                           ),
                         ),
@@ -126,17 +143,23 @@ class SettingsPage extends StatelessWidget {
               ],
             ),
             Center(
-                child: Padding(
-              padding: EdgeInsets.only(
-                  left: mediaQCons.getContantsMediaQueryData(
-                          MediaQueryContantsEnum.width) *
-                      0.04),
-              child: BaseTextWidget(
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left:
+                      mediaQCons.getContantsMediaQueryData(
+                        MediaQueryContantsEnum.width,
+                      ) *
+                      0.04,
+                ),
+                child: BaseTextWidget(
                   fontSize: mediaQCons.getContantsMediaQueryData(
-                      MediaQueryContantsEnum.appBarFontSize),
+                    MediaQueryContantsEnum.nameFontSize,
+                  ),
                   textColor: ColorConstants.textColor,
-                  text: StringConstants.serkanThanksMessage),
-            )),
+                  text: StringConstants.serkanThanksMessage,
+                ),
+              ),
+            ),
           ],
         ),
       ),
