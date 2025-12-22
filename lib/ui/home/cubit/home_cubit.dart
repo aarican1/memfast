@@ -13,6 +13,7 @@ class HomeCubit extends Cubit<BestScoresState> {
           bestScore: [],
           userList: [],
           personalIndex: -1,
+          playerName: '',
         ),
       ) {
     Future.microtask(() => getUserList());
@@ -105,7 +106,13 @@ class HomeCubit extends Cubit<BestScoresState> {
         if (userIndex < 0) {
           emit(state.copyWith(isUserReaded: false));
         } else {
-          emit(state.copyWith(isUserReaded: true, personalIndex: userIndex));
+          emit(
+            state.copyWith(
+              isUserReaded: true,
+              personalIndex: userIndex,
+              playerName: usernameResult,
+            ),
+          );
         }
       }
     }

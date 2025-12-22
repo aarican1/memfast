@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:memfast/generated/locale_keys.g.dart';
 
 import 'package:memfast/ui/settings/settings_cubit.dart';
@@ -10,8 +11,8 @@ import 'package:memfast/core/product/base_widgets/text_widget.dart';
 import 'package:memfast/core/product/constants/color_contants.dart';
 import 'package:memfast/core/product/constants/media_query_constants.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+class SettingsView extends StatelessWidget {
+  const SettingsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class SettingsPage extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop();
             },
             icon: const Icon(
               Icons.arrow_back_ios_new_sharp,

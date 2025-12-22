@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:memfast/core/utility/extension/size_extension.dart';
 
 int findButtoncount(int levelNumber) {
   switch (levelNumber) {
@@ -12,12 +13,12 @@ int findButtoncount(int levelNumber) {
     case 3:
       return 15;
     default:
-      return 10;
+      return 5;
   }
 }
 
 List<Offset> generateRandomButtonOffset(
-  MediaQueryData mediaQuery,
+  BuildContext context,
   int buttonCount,
   double buttonWidth,
   double buttonHeight,
@@ -25,8 +26,8 @@ List<Offset> generateRandomButtonOffset(
   List<Offset> positions = [];
 
   // Ekran boyutlarını bul.
-  double width = mediaQuery.size.width * 0.88;
-  double height = mediaQuery.size.height * 0.8;
+  double width = context.dynamicWidth(0.88);
+  double height = context.dynamicHeigth(0.8);
 
   // Butonların en yakın mesafesini hesapla.
   double spacing = buttonWidth + 15;

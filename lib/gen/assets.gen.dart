@@ -55,11 +55,33 @@ class $AssetsIconsGen {
 class $AssetsLottieGen {
   const $AssetsLottieGen();
 
+  /// File path: assets/lottie/Sad Face (1).json
+  String get sadFace1 => 'assets/lottie/Sad Face (1).json';
+
   /// File path: assets/lottie/brain.json
   String get brain => 'assets/lottie/brain.json';
 
+  /// File path: assets/lottie/dancerMonkey.json
+  String get dancerMonkey => 'assets/lottie/dancerMonkey.json';
+
+  /// File path: assets/lottie/face.json
+  String get face => 'assets/lottie/face.json';
+
+  /// File path: assets/lottie/meditatingBrain.json
+  String get meditatingBrain => 'assets/lottie/meditatingBrain.json';
+
+  /// File path: assets/lottie/sad.json
+  String get sad => 'assets/lottie/sad.json';
+
   /// List of all assets
-  List<String> get values => [brain];
+  List<String> get values => [
+    sadFace1,
+    brain,
+    dancerMonkey,
+    face,
+    meditatingBrain,
+    sad,
+  ];
 }
 
 class $AssetsMusicsGen {

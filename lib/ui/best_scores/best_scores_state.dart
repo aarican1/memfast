@@ -10,19 +10,30 @@ class BestScoresState extends Equatable {
   final List<UserModel?>? rankList;
   final bool? isUserReaded;
   final int personalIndex;
-    final String? errorMessage;
+  final String playerName;
+  final String? errorMessage;
 
-  const BestScoresState(
-      {this.rankList,
-      this.isUserReaded,
-      this.errorMessage,
-      required this.personalIndex,
-      this.isloading,
-      this.bestScore,
-      this.userList});
+  const BestScoresState({
+    this.rankList,
+    this.isUserReaded,
+    this.errorMessage,
+    required this.personalIndex,
+    required this.playerName,
+    this.isloading,
+    this.bestScore,
+    this.userList,
+  });
   @override
-  List<Object?> get props =>
-      [userList,errorMessage, personalIndex, rankList, isUserReaded, bestScore, isloading];
+  List<Object?> get props => [
+    userList,
+    errorMessage,
+    personalIndex,
+    playerName,
+    rankList,
+    isUserReaded,
+    bestScore,
+    isloading,
+  ];
 
   BestScoresState copyWith({
     List<UserModel?>? userList,
@@ -30,13 +41,15 @@ class BestScoresState extends Equatable {
     List<UserModel?>? rankList,
     bool? isloading,
     int? personalIndex,
+    String? playerName,
     bool? isUserReaded,
     List<UserModel?>? bestScore,
   }) {
     return BestScoresState(
       rankList: rankList ?? this.rankList,
-       errorMessage: errorMessage ?? this.errorMessage,
+      errorMessage: errorMessage ?? this.errorMessage,
       personalIndex: personalIndex ?? this.personalIndex,
+      playerName: playerName ?? this.playerName,
       userList: userList ?? this.userList,
       isUserReaded: isUserReaded ?? this.isUserReaded,
       isloading: isloading ?? this.isloading,

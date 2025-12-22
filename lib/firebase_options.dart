@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
-
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -45,15 +44,18 @@ class DefaultFirebaseOptions {
     appId: '1:597829617344:android:96bd3aa38290a7336f4f25',
     messagingSenderId: '597829617344',
     projectId: 'memfast-2fa87',
-    storageBucket: 'memfast-2fa87.appspot.com',
+    storageBucket: 'memfast-2fa87.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCcOqy-FXtO2lx-DlyYJYpEAYX_OgRZ_rI',
-    appId: '1:597829617344:ios:7059ab0eb66077296f4f25',
+    appId: '1:597829617344:ios:e8bb5584cb2ad1896f4f25',
     messagingSenderId: '597829617344',
     projectId: 'memfast-2fa87',
-    storageBucket: 'memfast-2fa87.appspot.com',
-    iosBundleId: 'com.example.memfast',
+    storageBucket: 'memfast-2fa87.firebasestorage.app',
+    androidClientId: '597829617344-l2r9vc2p9qs12747ha9qhonvauefh2jp.apps.googleusercontent.com',
+    iosClientId: '597829617344-7hqkmthdcitofihj1r26oni4hohhg70r.apps.googleusercontent.com',
+    iosBundleId: 'com.Arican.memfast',
   );
+
 }

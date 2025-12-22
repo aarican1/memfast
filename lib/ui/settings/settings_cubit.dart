@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:memfast/data/local_database/secure_storage.dart';
+import 'package:memfast/gen/assets.gen.dart';
 import 'package:memfast/ui/settings/settings_state.dart';
 
 class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
@@ -15,11 +16,10 @@ class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
     initAsset();
   }
 
-  void initAsset() {
-    musicPlayer.setAsset('assets/musics/music.mp3');
-    musicPlayer.setVolume(0.2);
+  Future<void> initAsset() async {
+    musicPlayer.setVolume(1);
     musicPlayer.setLoopMode(LoopMode.all);
-    buttonPlayer.setAsset('assets/musics/happypop.mp3');
+    buttonPlayer.setAsset(Assets.musics.happypop);
     buttonPlayer.setVolume(1);
   }
 
@@ -27,7 +27,12 @@ class SettingsCubit extends Cubit<SettingsState> with WidgetsBindingObserver {
     bool? aMusic = await BoolSharedPreferences.readBool('allowMusicPlay');
     bool? aSound = await BoolSharedPreferences.readBool('allowSoundPlay');
 
-    await musicPlayer.setAsset('assets/musics/music.mp3');
+    try {
+      await musicPlayer.setAsset(Assets.musics.music);
+    } catch (e) {
+      return;
+    }
+
     if (aMusic != null) {
       emit(state.copyWith(allowMusicPlay: aMusic));
       if (state.allowMusicPlay!) {

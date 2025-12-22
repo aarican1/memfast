@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memfast/core/utility/constants/size_constants.dart';
 import 'package:memfast/core/utility/extension/text_theme_extension.dart';
-import 'package:memfast/ui/register/bloc/register_cubit.dart';
-import 'package:memfast/ui/register/bloc/register_state.dart';
+import 'package:memfast/ui/sign_up/bloc/register_cubit.dart';
+import 'package:memfast/ui/sign_up/bloc/register_state.dart';
 
 import 'package:memfast/core/product/constants/color_contants.dart';
 import 'package:memfast/core/product/constants/duration_contants.dart';
@@ -24,12 +24,15 @@ class ClickAgreementLink extends StatelessWidget {
         alignment: AlignmentDirectional.topStart,
         child: TextButton(
           onPressed: () => context.read<RegisterCubit>().launchUpdateUrl(),
-          child: Text(
-            LocaleKeys.privacyAgreementLink.tr(),
-            style: context.textTheme.bodyMedium?.copyWith(
-              color: ColorConstants.textColor,
-            ),
-          ),
+          child:
+              Text(
+                LocaleKeys.privacyAgreementLink,
+                style: context.textTheme.bodyMedium?.copyWith(
+                  color: ColorConstants.textColor,
+                  decoration: TextDecoration.underline,
+                  decorationColor: ColorConstants.textColor,
+                ),
+              ).tr(),
         ),
       ),
     );

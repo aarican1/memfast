@@ -33,6 +33,16 @@ abstract class  LocaleKeys {
   static const gameOver = 'gameOver';
   static const signUp = 'signUp';
   static const privacyAgreementLink = 'privacyAgreementLink';
-  static const level = 'level';
+  static const playLevel = 'playLevel';
+  static const levelOne = 'levelOne';
+  static const levelTwo = 'levelTwo';
+  static const levelThree = 'levelThree';
+  static const levelFour = 'levelFour';
+  static const congrulations = 'congrulations';
+  static const legendsNeverGiveUp = 'legendsNeverGiveUp';
+  static const gainTimeAndContinue = 'gainTimeAndContinue';
+  static const howToPlay = 'howToPlay';
+  static const howToPlayButton = 'howToPlayButton';
+  static const hideNumbersAlert = 'hideNumbersAlert';
 
 }

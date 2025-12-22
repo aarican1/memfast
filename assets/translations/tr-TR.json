@@ -11,7 +11,7 @@
   "usernameAlreadyInUse": "Bu isim zaten kullanılıyor",
   "thanksContributor": "Katkılarından dolayı Serkan Özyaman'a teşekkür ederiz.",
   "bestPlayers": "En İyi Oyuncular",
-  "playerName": "Oyuncu Adı",
+  "playerName": "Adınız",
   "score": "Skor",
   "rank": "Sıra",
   "yourScore": "Skorunuz",
@@ -29,5 +29,18 @@
   "gameOver": "OYUN BİTTİ",
   "signUp": "Kayıt Ol",
   "privacyAgreementLink": "Gizlilik Sözleşmesi Linki",
-  "level": "Bölüm {}"
+  "playLevel": "Bölümü Oyna",
+  "levelOne": "🌱 Başlangıç 1\n🎯 5 Sayı\n ⏱️ 30 Sn.",
+  "levelTwo": "🔥 Orta Şerit 2\n🎯 8 Sayı\n ⏱️ 30 Sn.",
+  "levelThree": "🚀 Zorlu Mod 3\n🎯 12 Sayı\n ⏱️ 30 Sn.",
+  "levelFour": "👑 Efsane Mod 4\n🎯 15 Sayı\n ⏱️ 30 Sn.",
+  "congrulations" : "Tebrikler",
+  "legendsNeverGiveUp": "👑 Efsaneler Asla Pes Etmez!",
+  "gainTimeAndContinue": "Hem ⏱️ 30 Saniye kazan hem de kaldığın yerden aynen devam et.",
+  "howToPlay": "🧠 NASIL OYNANIR?\n\n1. Gözlemle ve Ezberle: Oyun başladığında sayılar rastgele dağılmış olacak. Yerlerini iyice hafızana kazı.\n\n2. Harekete Geç: Hazır olduğunda 1 numaraya dokun.\n\n3. Hafıza Testi: Dikkat! İlk sayıya dokunduğun an diğer tüm sayılar gizlenecek! 🫣 Kalan sayıları (2, 3, 4...) hafızanı kullanarak sırasıyla bulmalısın.\n\n📈 Seviyeler:\n🟢 Başlangıç: 5 Sayı\n🟡 Orta: 10 Sayı\n🟠 Zor: 12 Sayı\n🔴 Usta: 15 Sayı\n\n⏳ Süre ve İkinci Şans:\nSüren mi bitti? Endişelenme! Kısa bir reklam izleyerek +30 saniye kazanabilir ve kaldığın sayıdan (başa dönmeden) devam edebilirsin. 📺\n\n🏆 Liderlik Tablosu:\nAna sayfadaki Taç 👑 simgesine tıkla, hem kendi sıralamanı gör hem de en iyi 10 oyuncu arasına girmeye çalış!",
+  "howToPlayButton" : "Nasıl oynanır?",
+  "hideNumbersAlert": "İlk sayıya dokunduğun an diğer tüm sayılar gizlenecek!"
+
+
+ 
 }

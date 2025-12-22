@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:memfast/config/route/router_path.dart';
 import 'package:memfast/core/utility/constants/size_constants.dart';
 import 'package:memfast/gen/assets.gen.dart';
-import 'package:memfast/ui/best_scores/best_scores_page.dart';
 import 'package:memfast/ui/home/cubit/home_cubit.dart';
-import 'package:memfast/ui/register/widgets/register_widgets.dart';
+import 'package:memfast/ui/sign_up/widgets/register_widgets.dart';
 import 'package:memfast/ui/select_level/cubit/select_level_cubit.dart';
-import 'package:memfast/ui/select_level/page/select_level_page.dart';
-import 'package:memfast/ui/settings/settings_page.dart';
 import 'package:memfast/core/product/constants/color_contants.dart';
 
 class LetsStartButton extends StatelessWidget {
@@ -20,14 +19,7 @@ class LetsStartButton extends StatelessWidget {
       child: InkWell(
         onTap: () {
           context.read<SelectLevelCubit>().choiceButtonColor();
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return const SelectLevelPage();
-              },
-            ),
-          );
+          context.push(RouterPath.selectLevel.path);
         },
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
@@ -39,7 +31,11 @@ class LetsStartButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(SizeConstants.twentyFour),
           ),
           child: const Center(
-            child: Icon(Icons.play_arrow, color: ColorConstants.textColor),
+            child: Icon(
+              Icons.play_arrow,
+              size: SizeConstants.thirtyTwo,
+              color: ColorConstants.textColor,
+            ),
           ),
         ),
       ),
@@ -65,14 +61,7 @@ class BestScoresButton extends StatelessWidget {
       onPressed: () async {
         context.read<HomeCubit>().selectionBestScore();
         context.read<HomeCubit>().personalScore();
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return const BestScoresPage();
-            },
-          ),
-        );
+        context.push(RouterPath.bestScores.path);
       },
       icon: Image.asset(
         Assets.icons.award.path,
@@ -90,14 +79,7 @@ class SettingsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return const SettingsPage();
-            },
-          ),
-        );
+        context.push(RouterPath.settings.path);
       },
       icon: Image.asset(
         Assets.icons.settings.path,

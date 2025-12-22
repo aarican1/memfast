@@ -7,6 +7,7 @@ import 'package:equatable/equatable.dart';
 class GameState extends Equatable {
   final int whichLevelButton;
   final bool scoreCalculated;
+  final bool isGameDone;
   final bool isTapFirst;
   final bool wrongNumber;
   final bool isOneGameOneAd;
@@ -23,6 +24,7 @@ class GameState extends Equatable {
     required this.whichLevelButton,
     required this.scoreCalculated,
     required this.isTapFirst,
+    required this.isGameDone,
     required this.wrongNumber,
     required this.score,
     this.errorMessage,
@@ -36,24 +38,27 @@ class GameState extends Equatable {
   @override
   List<Object?> get props => [
     isOneGameOneAd,
-        wrongNumber,
-        errorMessage,
-        isTapFirst,
-        whichLevelButton,
-        scoreCalculated,
-        timerCount,
-        score,
-        timer,
-        buttonTapCounter,
-        buttonVisibiltyList,
-        timeisOver
-      ];
+    wrongNumber,
+    errorMessage,
+    isTapFirst,
+    whichLevelButton,
+    scoreCalculated,
+    timerCount,
+    isGameDone,
+    score,
+    timer,
+    buttonTapCounter,
+    buttonVisibiltyList,
+    timeisOver,
+  ];
 
   GameState copyWith({
+    int? buttonCount,
     int? whichLevelButton,
     bool? scoreCalculated,
     bool? isTapFirst,
     bool? wrongNumber,
+    bool? isGameDone,
     bool? isOneGameOneAd,
     int? score,
     Timer? timer,
@@ -67,6 +72,7 @@ class GameState extends Equatable {
       whichLevelButton: whichLevelButton ?? this.whichLevelButton,
       scoreCalculated: scoreCalculated ?? this.scoreCalculated,
       isTapFirst: isTapFirst ?? this.isTapFirst,
+      isGameDone: isGameDone ?? this.isGameDone,
       wrongNumber: wrongNumber ?? this.wrongNumber,
       isOneGameOneAd: isOneGameOneAd ?? this.isOneGameOneAd,
       score: score ?? this.score,

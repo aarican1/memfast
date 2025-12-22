@@ -18,7 +18,12 @@ dependencies:
   sign_in_with_apple: ^6.1.4
 
   #googleads
-  google_mobile_ads: ^6.0.0 
+  google_mobile_ads: ^6.0.0
+
+  #navigation
+  go_router: ^17.0.1 
+
+  
 
   #local database
   flutter_secure_storage: ^9.2.4
@@ -48,12 +53,11 @@ dependencies:
   #fonts
   google_fonts: ^6.3.2
 
-  #audioplayer
-  audioplayers: ^6.5.1
+  
   just_audio: ^0.10.5
 
   #assets
-  flutter_svg: ^2.2.1
+  flutter_svg: ^2.2.3
   easy_localization: ^3.0.7
 
   #short-code
@@ -89,6 +93,7 @@ flutter:
     - assets/icons/
     - assets/musics/
     - assets/lottie/
+    - assets/musics/
   #   - images/a_dot_ham.jpeg
 
  

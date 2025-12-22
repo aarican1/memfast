@@ -11,7 +11,7 @@
   "usernameAlreadyInUse": "This name is already use",
   "thanksContributor": "Thank you Serkan Özyaman for his contributions.",
   "bestPlayers": "Best Players",
-  "playerName": "Player Name",
+  "playerName": "Your Name",
   "score": "Score",
   "rank": "Rank",
   "yourScore": "Your Score",
@@ -29,5 +29,16 @@
   "gameOver": "GAME OVER",
   "signUp": "Sign Up",
   "privacyAgreementLink": "Privacy Agreement Link",
-  "level": "Level {}"
+  "playLevel": "Play Level",
+  "levelOne": "🌱 Beginner 1\n🎯 5 Numbers\n  ⏱️ 30 Sec.",
+  "levelTwo": "🔥 Intermediate 2\n🎯 8 Numbers\n  ⏱️ 45 Sec.",
+  "levelThree": "🚀 Hard Mode 3\n🎯 12 Numbers\n  ⏱️ 60 Sec.",
+  "levelFour": "👑 Legendary 4\n🎯 15 Numbers\n  ⏱️ 90 Sec.",
+  "congrulations" : "Congratulations",
+  "legendsNeverGiveUp": "👑 Legends Never Give Up!",
+  "gainTimeAndContinue": "Get ⏱️ 30 Seconds and continue exactly where you left off.",
+  "howToPlay": "🧠 HOW TO PLAY?\n\n1. Observe & Memorize: Numbers are scattered randomly at the start. Commit their positions to your memory well!\n\n2. Make Your Move: Tap on number 1 when you are ready.\n\n3. The Memory Test: Watch out! As soon as you tap the first number, all others will hide! 🫣 You must find the remaining numbers (2, 3, 4...) in order using your memory.\n\n📈 Levels:\n🟢 Beginner: 5 Numbers\n🟡 Intermediate: 10 Numbers\n🟠 Hard: 12 Numbers\n🔴 Master: 15 Numbers\n\n⏳ Time & Second Chance:\nOut of time? Don't worry! Watch a short ad to gain +30 seconds and continue exactly where you left off. 📺\n\n🏆 Leaderboard:\nTap the Crown 👑 icon on the home screen to check your rank and compete to make it into the Top 10 players!",
+  "howToPlayButton" : "How to play?",
+  "hideNumbersAlert": "As soon as you tap the first number, all other numbers will hide!"
+
 }

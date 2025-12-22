@@ -12,6 +12,7 @@ class ColorConstants {
   ];
 
   static const Color grey = Colors.grey;
+  static const Color blue = Colors.blue;
   static const Color buttonBackgroundColor = Color.fromARGB(255, 1, 121, 176);
   static const Color textColor = Colors.white;
   static const Color levelButtonColorHalfElevation = Color.fromRGBO(

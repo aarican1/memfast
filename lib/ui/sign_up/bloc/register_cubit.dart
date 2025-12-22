@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memfast/data/local_database/secure_storage.dart';
 
 import 'package:url_launcher/url_launcher.dart';
-import 'package:memfast/ui/register/bloc/register_state.dart';
+import 'package:memfast/ui/sign_up/bloc/register_state.dart';
 
 import 'package:memfast/core/utility/enums/firebase_enums.dart';
 

@@ -7,6 +7,7 @@ import 'package:memfast/ui/best_scores/best_scores_state.dart';
 import 'package:memfast/ui/home/cubit/home_cubit.dart';
 import 'package:memfast/ui/home/widgets/brain_animation.dart';
 import 'package:memfast/ui/home/widgets/home_widgets.dart';
+import 'package:memfast/ui/home/widgets/how_to_play_button.dart';
 import 'package:memfast/ui/splash/alert_widget/alert_dialog.dart';
 
 import 'package:memfast/core/product/base_widgets/base_container_widget.dart';
@@ -37,11 +38,10 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
             spacing: SizeConstants.twentyFour,
             children: [
               BrainAnimation(),
-              Spacer(),
               NameText(),
               SizedBox(height: SizeConstants.sixteen),
               LetsStartButton(),
-              Spacer(),
+              HowToPlayButton(),
             ],
           ),
         ),
