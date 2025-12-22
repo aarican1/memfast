@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>597829617344-7hqkmthdcitofihj1r26oni4hohhg70r.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.597829617344-7hqkmthdcitofihj1r26oni4hohhg70r</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>597829617344-l2r9vc2p9qs12747ha9qhonvauefh2jp.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCcOqy-FXtO2lx-DlyYJYpEAYX_OgRZ_rI</string>
 	<key>GCM_SENDER_ID</key>
@@ -9,11 +15,11 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.memfast</string>
+	<string>com.Arican.memfast</string>
 	<key>PROJECT_ID</key>
 	<string>memfast-2fa87</string>
 	<key>STORAGE_BUCKET</key>
-	<string>memfast-2fa87.appspot.com</string>
+	<string>memfast-2fa87.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:597829617344:ios:7059ab0eb66077296f4f25</string>
+	<string>1:597829617344:ios:e8bb5584cb2ad1896f4f25</string>
 </dict>
 </plist>

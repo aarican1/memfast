@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "597829617344",
     "project_id": "memfast-2fa87",
-    "storage_bucket": "memfast-2fa87.appspot.com"
+    "storage_bucket": "memfast-2fa87.firebasestorage.app"
   },
   "client": [
     {
@@ -12,7 +12,28 @@
           "package_name": "com.Arican.memfast"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "597829617344-l2r9vc2p9qs12747ha9qhonvauefh2jp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Arican.memfast",
+            "certificate_hash": "f151e83fe6441c53878651cfc2fdceecc4cdfd2c"
+          }
+        },
+        {
+          "client_id": "597829617344-mr5br995s4m6s6djetouqtp01q9ddpps.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Arican.memfast",
+            "certificate_hash": "0d96796b357a7484f26e1ba9dca04c9297cd85b1"
+          }
+        },
+        {
+          "client_id": "597829617344-cjm3b8qvvpm585tpjs1pjtluf7kdanhi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCiW0byOFr3htxq2Zxt8_evpc1L0gknrUg"
@@ -20,7 +41,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597829617344-cjm3b8qvvpm585tpjs1pjtluf7kdanhi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "597829617344-7hqkmthdcitofihj1r26oni4hohhg70r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Arican.memfast"
+              }
+            }
+          ]
         }
       }
     }

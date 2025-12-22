@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
-
-
 class AudioManager with WidgetsBindingObserver {
   static final AudioManager _instance = AudioManager._internal();
 
@@ -21,7 +19,6 @@ class AudioManager with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-   
     if (state == AppLifecycleState.paused) {
       pauseMusic();
     } else if (state == AppLifecycleState.resumed) {
@@ -33,7 +30,7 @@ class AudioManager with WidgetsBindingObserver {
 
   Future<void> playMusic() async {
     try {
-      await audioPlayer.setAsset('lib/assets/musics/gamemusic-6082.mp3');
+      await audioPlayer.setAsset('assets/musics/gamemusic-6082.mp3');
       await audioPlayer.setVolume(0.2);
       await audioPlayer.setLoopMode(LoopMode.all);
       await audioPlayer.play();
@@ -55,7 +52,7 @@ class AudioManager with WidgetsBindingObserver {
 
   Future<void> playSound() async {
     try {
-      await buttonPlayer.setAsset('lib/assets/musics/happypop.mp3');
+      await buttonPlayer.setAsset('assets/musics/happypop.mp3');
       await buttonPlayer.setVolume(1);
       await buttonPlayer.seek(Duration.zero);
       await buttonPlayer.play();

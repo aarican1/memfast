@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:memfast/google_ads/google_ads_state.dart';
+import 'package:memfast/data/services/permission/permisson_service.dart';
 
 class GoogleAdsCubit extends Cubit<GoogleAdsState> {
   GoogleAdsCubit() : super(const GoogleAdsState(showRewardedAd: 0)) {
@@ -10,15 +11,19 @@ class GoogleAdsCubit extends Cubit<GoogleAdsState> {
   }
   RewardedAd? rewardedAd;
   int numRewardedLoadAttempts = 0;
+  final PermissionService permissionService = PermissionService();
 
   Future<void> loadAd() async {
+    await permissionService.requestAdvertisingId();
     if (state.adLoaded == true || state.adLoading == true) {
     } else {
       emit(state.copyWith(adLoading: true));
-      String adUnitId;
-      if (Platform.isAndroid) {
+      String adUnitId = "ca-app-pub-7594703334228561/1928702834";
+
+      if (Platform.isAndroid || !Platform.isIOS) {
         adUnitId = "ca-app-pub-7594703334228561/2544822530";
       } else {
+        print("platform is ios");
         adUnitId = "ca-app-pub-7594703334228561/1928702834";
       }
       rewardedAd = null;
