@@ -48,9 +48,14 @@ class GoRouterConfig {
       ),
 
       GoRoute(
-        path: RouterPath.game.path,
+        path: "/game/:buttonCount",
         name: RouterPath.game.name,
-        builder: (context, state) => const GameView(),
+        builder: (context, state) {
+          final int buttonCount = int.parse(
+            state.pathParameters["buttonCount"] ?? "5",
+          );
+          return GameView(key: ValueKey(buttonCount), buttonCount: buttonCount);
+        },
       ),
       GoRoute(
         path: RouterPath.levelComplete.path,

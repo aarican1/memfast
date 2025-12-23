@@ -62,7 +62,7 @@ class SelectLevelView extends StatelessWidget with SelectLevelMixin {
                       onPressed: () {
                         context.read<GameCubit>().reset();
                         state.openLevelList?[0] ?? true
-                            ? context.push(RouterPath.game.path, extra: 5)
+                            ? context.go("${RouterPath.game.path}/${5}")
                             : null;
                       },
 
@@ -73,7 +73,7 @@ class SelectLevelView extends StatelessWidget with SelectLevelMixin {
                       onPressed: () {
                         context.read<GameCubit>().reset();
                         state.openLevelList?[1] ?? true
-                            ? context.push(RouterPath.game.path, extra: 10)
+                            ? context.go("${RouterPath.game.path}/${10}")
                             : null;
                       },
 
@@ -85,7 +85,7 @@ class SelectLevelView extends StatelessWidget with SelectLevelMixin {
                         context.read<GameCubit>().reset();
 
                         state.openLevelList?[2] ?? false
-                            ? context.push(RouterPath.game.path, extra: 12)
+                            ? context.go("${RouterPath.game.path}/${12}")
                             : null;
                       },
 
@@ -96,7 +96,7 @@ class SelectLevelView extends StatelessWidget with SelectLevelMixin {
                       onPressed: () {
                         context.read<GameCubit>().reset();
                         state.openLevelList?[3] ?? false
-                            ? context.push(RouterPath.game.path, extra: 15)
+                            ? context.go("${RouterPath.game.path}/${15}")
                             : null;
                       },
                       levelNumber: 4,

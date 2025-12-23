@@ -9,6 +9,7 @@ import 'package:memfast/core/utility/extension/text_theme_extension.dart';
 import 'package:memfast/generated/locale_keys.g.dart';
 import 'package:memfast/ui/game/game_cubit.dart';
 import 'package:memfast/ui/game/game_state.dart';
+import 'package:memfast/ui/game/widget/thinking_brain_widget.dart';
 import 'package:memfast/ui/select_level/cubit/select_level_cubit.dart';
 import 'package:memfast/ui/settings/settings_cubit.dart';
 import 'package:memfast/ui/splash/alert_widget/alert_dialog.dart';
@@ -19,7 +20,8 @@ import 'package:memfast/core/product/constants/duration_contants.dart';
 part 'game_mixin.dart';
 
 class GameView extends StatefulWidget {
-  const GameView({super.key});
+  const GameView({super.key, required this.buttonCount});
+  final int buttonCount;
 
   @override
   State<GameView> createState() => _GameViewState();
@@ -54,7 +56,7 @@ class _GameViewState extends State<GameView> with GameMixin {
                   color: ColorConstants.textColor,
                 ),
               ),
-              title: BaseTextWidget(text: LocaleKeys.memfast.tr()),
+              title: const ThinkingBrainWidget(),
             ),
             body: Stack(
               children: [

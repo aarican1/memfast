@@ -50,26 +50,10 @@ mixin GameMixin on State<GameView> {
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    print("didChange");
-    buttonCount = GoRouter.of(context).state.extra as int;
-    setList(context, buttonCount);
-    context.read<GameCubit>().setLevelButton(buttonCount);
-  }
-
-  @override
-  void didUpdateWidget(covariant GameView oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    buttonCount = GoRouter.of(context).state.extra as int;
-    setList(context, buttonCount);
-    context.read<GameCubit>().setLevelButton(buttonCount);
-  }
-
-  @override
   void initState() {
     super.initState();
-    buttonCount = GoRouter.of(context).state.extra as int;
+    buttonCount = widget.buttonCount;
+    context.read<GameCubit>().setLevelButton(buttonCount);
   }
 
   @override

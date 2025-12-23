@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memfast/data/local_database/secure_storage.dart';
+import 'package:memfast/generated/locale_keys.g.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:memfast/ui/sign_up/bloc/register_state.dart';
@@ -85,7 +87,9 @@ class RegisterCubit extends Cubit<RegisterState> {
         final url = urlData.toString();
 
         if (url.isEmpty) {
-          throw 'url is null';
+          emit(
+            state.copyWith(errorMessage: LocaleKeys.somethingWentWrong.tr()),
+          );
         }
         emit(state.copyWith(agreementUrl: url));
         final uri = Uri.parse(url);
@@ -94,7 +98,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         }
       }
     } catch (e) {
-      emit(state.copyWith(errorMessage: '$e'));
+      emit(state.copyWith(errorMessage: LocaleKeys.somethingWentWrong.tr()));
     }
   }
 
@@ -109,7 +113,9 @@ class RegisterCubit extends Cubit<RegisterState> {
       if (await canLaunchUrl(uriParse)) {
         await launchUrl(uriParse, mode: LaunchMode.externalApplication);
       } else {
-        emit(state.copyWith(errorMessage: 'Could not launch $uriParse'));
+        emit(
+          state.copyWith(errorMessage: "URL ${LocaleKeys.couldNotLaunch.tr()}"),
+        );
       }
     } else {
       if (await canLaunchUrl(uriParse)) {
@@ -118,7 +124,9 @@ class RegisterCubit extends Cubit<RegisterState> {
           mode: LaunchMode.externalNonBrowserApplication,
         );
       } else {
-        emit(state.copyWith(errorMessage: 'Could not launch $uriParse'));
+        emit(
+          state.copyWith(errorMessage: "URL ${LocaleKeys.couldNotLaunch.tr()}"),
+        );
       }
     }
   }

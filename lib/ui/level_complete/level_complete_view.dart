@@ -16,16 +16,22 @@ import 'package:memfast/core/product/base_widgets/base_container_widget.dart';
 import 'package:memfast/core/product/constants/color_contants.dart';
 part 'level_complete_mixin.dart';
 
-class LevelCompleteView extends StatelessWidget with _LevelCompleteViewMixin {
+class LevelCompleteView extends StatefulWidget {
   const LevelCompleteView({super.key});
 
+  @override
+  State<LevelCompleteView> createState() => _LevelCompleteViewState();
+}
+
+class _LevelCompleteViewState extends State<LevelCompleteView>
+    with _LevelCompleteViewMixin {
   @override
   Widget build(BuildContext context) {
     return BaseContainer(
       child: PopScope(
         canPop: true,
         onPopInvokedWithResult: (didPop, result) {
-          if (!didPop) return;
+          if (!didPop || isNavigating) return;
           Future.microtask(() {
             if (context.mounted) {
               context.read<GameCubit>().reset();

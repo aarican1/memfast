@@ -7,7 +7,6 @@ import 'package:memfast/core/utility/constants/size_constants.dart';
 import 'package:memfast/core/utility/extension/text_theme_extension.dart';
 import 'package:memfast/gen/assets.gen.dart';
 import 'package:memfast/google_ads/google_ads_cubit.dart';
-import 'package:memfast/google_ads/google_ads_error_alert.dart';
 import 'package:memfast/google_ads/google_ads_state.dart';
 import 'package:memfast/ui/game/game_cubit.dart';
 import 'package:memfast/ui/game/game_state.dart';
@@ -38,7 +37,7 @@ class _GameOverViewState extends State<GameOverView> with GameOverMixin {
       child: PopScope(
         canPop: true,
         onPopInvokedWithResult: (didPop, result) {
-          if (!didPop) {
+          if (!didPop || isNavigating) {
             return;
           }
           Future.microtask(() {

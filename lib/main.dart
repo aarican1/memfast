@@ -94,7 +94,7 @@ Widget networkMainBuilder(BuildContext context, Widget? child) {
     builder: (context, state) {
       return Column(
         children: [
-          Expanded(child: child ?? const Placeholder()),
+          Expanded(child: child ?? const SizedBox.shrink()),
           AnimatedCrossFade(
             firstChild: Container(
               height: SizeConstants.seventyTwo,

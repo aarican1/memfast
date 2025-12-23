@@ -44,5 +44,6 @@ abstract class  LocaleKeys {
   static const howToPlay = 'howToPlay';
   static const howToPlayButton = 'howToPlayButton';
   static const hideNumbersAlert = 'hideNumbersAlert';
+  static const couldNotLaunch = 'couldNotLaunch';
 
 }

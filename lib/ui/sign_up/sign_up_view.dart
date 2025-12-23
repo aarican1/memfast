@@ -8,12 +8,9 @@ import 'package:memfast/core/utility/constants/size_constants.dart';
 import 'package:memfast/core/utility/enums/firebase_enums.dart';
 import 'package:memfast/core/utility/extension/text_theme_extension.dart';
 import 'package:memfast/generated/locale_keys.g.dart';
-
-import 'package:memfast/ui/home/home_view.dart';
 import 'package:memfast/ui/sign_up/bloc/register_cubit.dart';
 import 'package:memfast/ui/sign_up/bloc/register_state.dart';
 import 'package:memfast/ui/sign_up/widgets/register_widgets.dart';
-import 'package:memfast/ui/splash/alert_widget/alert_dialog.dart';
 import 'package:memfast/core/product/constants/color_contants.dart';
 import 'package:memfast/core/product/constants/duration_contants.dart';
 import 'package:memfast/core/product/widgets/circular_progress_indicator.dart';
@@ -53,21 +50,18 @@ class _SignUpViewState extends State<SignUpView> {
           child: BlocConsumer<RegisterCubit, RegisterState>(
             listener: (context, state) {
               if (state.errorMessage != null) {
-                showDialog(
-                  context: context,
-                  builder:
-                      (context) => SomethingWentWrongDialog(
-                        errorMessage: state.errorMessage ?? '',
-                      ),
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(state.errorMessage ?? ""),
+                    backgroundColor: ColorConstants.buttonBackgroundColor,
+                    duration: const Duration(seconds: 2),
+                  ),
                 );
                 context.read<RegisterCubit>().errorMakeNull();
               }
               if (state.isCreateUsername && state.isAgreementAccept) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomeView()),
-                  );
+                  context.go(RouterPath.home.path);
                 });
               }
             },
