@@ -40,7 +40,8 @@
   "howToPlay": "🧠 NASIL OYNANIR?\n\n1. Gözlemle ve Ezberle: Oyun başladığında sayılar rastgele dağılmış olacak. Yerlerini iyice hafızana kazı.\n\n2. Harekete Geç: Hazır olduğunda 1 numaraya dokun.\n\n3. Hafıza Testi: Dikkat! İlk sayıya dokunduğun an diğer tüm sayılar gizlenecek! 🫣 Kalan sayıları (2, 3, 4...) hafızanı kullanarak sırasıyla bulmalısın.\n\n📈 Seviyeler:\n🟢 Başlangıç: 5 Sayı\n🟡 Orta: 10 Sayı\n🟠 Zor: 12 Sayı\n🔴 Usta: 15 Sayı\n\n⏳ Süre ve İkinci Şans:\nSüren mi bitti? Endişelenme! Kısa bir reklam izleyerek +30 saniye kazanabilir ve kaldığın sayıdan (başa dönmeden) devam edebilirsin. 📺\n\n🏆 Liderlik Tablosu:\nAna sayfadaki Taç 👑 simgesine tıkla, hem kendi sıralamanı gör hem de en iyi 10 oyuncu arasına girmeye çalış!",
   "howToPlayButton" : "Nasıl oynanır?",
   "hideNumbersAlert": "İlk sayıya dokunduğun an diğer tüm sayılar gizlenecek!",
-  "couldNotLaunch" : "Başlatılamadı"
+  "couldNotLaunch" : "Başlatılamadı",
+  "adNotFound" : "Reklam bulunamadı. Lütfen daha sonra deneyiniz."
 
 
  

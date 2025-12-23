@@ -16,6 +16,12 @@ mixin _LevelCompleteViewMixin on State<LevelCompleteView> {
     context.go("${RouterPath.game.path}/$buttonCount");
   }
 
+  void selectLevelOnTap(BuildContext context, GameState state) {
+    isNavigating = true;
+    context.read<SelectLevelCubit>().choiceButtonColor();
+    context.go(RouterPath.selectLevel.path);
+  }
+
   void nextLevelOnTap(BuildContext context, GameState state) {
     isNavigating = true;
     int buttonCount = state.whichLevelButton;

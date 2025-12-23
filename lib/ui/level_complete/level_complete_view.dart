@@ -91,7 +91,11 @@ class _LevelCompleteViewState extends State<LevelCompleteView>
                       children: [
                         Expanded(
                           child: InkWell(
-                            onTap: () => nextLevelOnTap(context, state),
+                            onTap:
+                                () =>
+                                    state.whichLevelButton == 15
+                                        ? selectLevelOnTap(context, state)
+                                        : nextLevelOnTap(context, state),
                             child: Container(
                               height: SizeConstants.fiftySix,
                               width: double.infinity,

@@ -91,7 +91,12 @@ class GoogleAdsCubit extends Cubit<GoogleAdsState> {
         emit(state.copyWith(showRewardedAd: state.showRewardedAd + 1));
         emit(state.copyWith(isAdShow: true, adLoaded: false, adLoading: false));
       } else {
-        emit(state.copyWith(errorMessage: 'Ad not Found', isAdShow: false));
+        emit(
+          state.copyWith(
+            errorMessage: LocaleKeys.adNotFound.tr(),
+            isAdShow: false,
+          ),
+        );
       }
     } else {
       emit(state.copyWith(rewardedAdLimit: true));
