@@ -44,68 +44,70 @@ class SelectLevelView extends StatelessWidget with SelectLevelMixin {
                 ),
               ).tr(),
         ),
-        body: Center(
-          child: BlocConsumer<SelectLevelCubit, SelectLevelState>(
-            listener: listener,
-            builder: (context, state) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: SizeConstants.twentyFour,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  spacing: SizeConstants.twentyFour,
-                  children: [
-                    const SizedBox(height: SizeConstants.twentyFour),
-                    LevelFieldWidget(
-                      colorSetter: state.openLevelList?[0] ?? true,
-                      onPressed: () {
-                        context.read<GameCubit>().reset();
-                        state.openLevelList?[0] ?? true
-                            ? context.go("${RouterPath.game.path}/${5}")
-                            : null;
-                      },
+        body: SingleChildScrollView(
+          child: Center(
+            child: BlocConsumer<SelectLevelCubit, SelectLevelState>(
+              listener: listener,
+              builder: (context, state) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: SizeConstants.twentyFour,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    spacing: SizeConstants.sixteen,
+                    children: [
+                      const SizedBox(height: SizeConstants.twentyFour),
+                      LevelFieldWidget(
+                        colorSetter: state.openLevelList?[0] ?? true,
+                        onPressed: () {
+                          context.read<GameCubit>().reset();
+                          state.openLevelList?[0] ?? true
+                              ? context.go("${RouterPath.game.path}/${5}")
+                              : null;
+                        },
 
-                      levelNumber: 1,
-                    ),
-                    LevelFieldWidget(
-                      colorSetter: state.openLevelList?[1] ?? true,
-                      onPressed: () {
-                        context.read<GameCubit>().reset();
-                        state.openLevelList?[1] ?? true
-                            ? context.go("${RouterPath.game.path}/${10}")
-                            : null;
-                      },
+                        levelNumber: 1,
+                      ),
+                      LevelFieldWidget(
+                        colorSetter: state.openLevelList?[1] ?? true,
+                        onPressed: () {
+                          context.read<GameCubit>().reset();
+                          state.openLevelList?[1] ?? true
+                              ? context.go("${RouterPath.game.path}/${10}")
+                              : null;
+                        },
 
-                      levelNumber: 2,
-                    ),
-                    LevelFieldWidget(
-                      colorSetter: state.openLevelList?[2] ?? false,
-                      onPressed: () {
-                        context.read<GameCubit>().reset();
+                        levelNumber: 2,
+                      ),
+                      LevelFieldWidget(
+                        colorSetter: state.openLevelList?[2] ?? false,
+                        onPressed: () {
+                          context.read<GameCubit>().reset();
 
-                        state.openLevelList?[2] ?? false
-                            ? context.go("${RouterPath.game.path}/${12}")
-                            : null;
-                      },
+                          state.openLevelList?[2] ?? false
+                              ? context.go("${RouterPath.game.path}/${12}")
+                              : null;
+                        },
 
-                      levelNumber: 3,
-                    ),
-                    LevelFieldWidget(
-                      colorSetter: state.openLevelList?[3] ?? false,
-                      onPressed: () {
-                        context.read<GameCubit>().reset();
-                        state.openLevelList?[3] ?? false
-                            ? context.go("${RouterPath.game.path}/${15}")
-                            : null;
-                      },
-                      levelNumber: 4,
-                    ),
-                    const HowToPlayButton(),
-                  ],
-                ),
-              );
-            },
+                        levelNumber: 3,
+                      ),
+                      LevelFieldWidget(
+                        colorSetter: state.openLevelList?[3] ?? false,
+                        onPressed: () {
+                          context.read<GameCubit>().reset();
+                          state.openLevelList?[3] ?? false
+                              ? context.go("${RouterPath.game.path}/${15}")
+                              : null;
+                        },
+                        levelNumber: 4,
+                      ),
+                      const HowToPlayButton(),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),

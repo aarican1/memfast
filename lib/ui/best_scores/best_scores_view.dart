@@ -80,7 +80,7 @@ class BestScoresView extends StatelessWidget {
                                 : CrossFadeState.showFirst,
                         secondChild: const CenterCircularIndicator(),
                         firstChild: SizedBox(
-                          height: context.dynamicHeigth(0.5),
+                          height: context.dynamicHeigth(0.4),
                           child: const BestScoreLWB(),
                         ),
                       );

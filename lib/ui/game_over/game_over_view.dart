@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:memfast/config/route/router_path.dart';
 import 'package:memfast/core/utility/constants/size_constants.dart';
+import 'package:memfast/core/utility/extension/size_extension.dart';
 import 'package:memfast/core/utility/extension/text_theme_extension.dart';
 import 'package:memfast/gen/assets.gen.dart';
 import 'package:memfast/google_ads/google_ads_cubit.dart';
@@ -61,8 +62,8 @@ class _GameOverViewState extends State<GameOverView> with GameOverMixin {
             title: const RegisterAppBarTitle(),
           ),
           body: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: SizeConstants.twentyFour,
+            padding: EdgeInsets.symmetric(
+              vertical: context.dynamicHeigth(0.02),
               horizontal: SizeConstants.sixteen,
             ),
             child: BlocListener<GoogleAdsCubit, GoogleAdsState>(
@@ -70,7 +71,7 @@ class _GameOverViewState extends State<GameOverView> with GameOverMixin {
               child: BlocBuilder<GameCubit, GameState>(
                 builder: (context, state) {
                   return Column(
-                    spacing: SizeConstants.thirtySix,
+                    spacing: context.dynamicHeigth(0.03),
                     children: [
                       Center(
                         child: Text(

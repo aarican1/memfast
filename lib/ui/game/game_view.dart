@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:memfast/config/route/router_path.dart';
 import 'package:memfast/core/methods/generate_random_offset.dart';
 import 'package:memfast/core/utility/constants/size_constants.dart';
+import 'package:memfast/core/utility/extension/size_extension.dart';
 import 'package:memfast/core/utility/extension/text_theme_extension.dart';
 import 'package:memfast/generated/locale_keys.g.dart';
 import 'package:memfast/ui/game/game_cubit.dart';

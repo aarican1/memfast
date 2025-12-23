@@ -19,7 +19,7 @@ class LevelFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: SizeConstants.twelve,
+      spacing: SizeConstants.eight,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(

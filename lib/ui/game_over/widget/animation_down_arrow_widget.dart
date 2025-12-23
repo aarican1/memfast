@@ -7,7 +7,7 @@ class AnimatedDownArrow extends StatefulWidget {
   const AnimatedDownArrow({
     super.key,
     this.color = Colors.white, // Varsayılan renk
-    this.size = 50.0, // Varsayılan boyut
+    this.size = 40, // Varsayılan boyut
   });
 
   @override

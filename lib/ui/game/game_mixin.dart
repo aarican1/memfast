@@ -5,7 +5,12 @@ mixin GameMixin on State<GameView> {
   late int buttonCount;
 
   void setList(BuildContext context, int widgetCount) {
-    buttonOffsetList = generateRandomButtonOffset(context, widgetCount, 96, 96);
+    buttonOffsetList = generateRandomButtonOffset(
+      context,
+      widgetCount,
+      context.dynamicHeigth(0.1),
+      context.dynamicHeigth(0.1),
+    );
   }
 
   Future<void> listener(BuildContext context, GameState state) async {
